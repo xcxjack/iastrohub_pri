@@ -154,23 +154,23 @@ input[type="button"] {
 	width: 182px;
 	}
 
-input[value="Guide"] {
+input[value="Guide"], input[value="导星"] {
 	background-color:#B09000;
 	border-color:#707000;
 	font-weight: bold;
 }
 
-input[value="Stop"] {
+input[value="Stop"], input[value="停止"] {
 	background-color:#FF0000;
 	border-color:#990000;
 	font-weight: bold;
 }
 
-input[value="Calibrate"] {
+input[value="Calibrate"], input[value="校准"] {
 	font-weight: bold;
 }
 
-input[value="Start"] {
+input[value="Start"], input[value="开始"]  {
 	background-color:#B05000;
 	border-color:#704000;
 	font-weight: bold;
@@ -201,13 +201,13 @@ input[name="filename"]  {
 	width: 100%;
 }
 
-input[value="Y-"],  input[value="Y+"], input[value="Clear"], input[value="Clear Graphs"]   {
+input[value="Y-"],  input[value="Y+"], input[value="Clear"], input[value="Clear Graphs"]， input[value="清除记录"] {
 	background-color: #000000;
 	border-color: #B90000;
 	color: #BA0000;
 }
 
-input[value="Admin"] {
+input[value="Admin"], input[value="管理设置"] {
 	background-color: #000000;
 	color: #BA0000;
 	border-color: #B90000;
@@ -229,7 +229,7 @@ select.QSI {
 
 /* For admin page: */
 
-input[value="Start Apps"], input[value="Start VNC Server"] {
+input[value="Start Apps"], input[value="Start VNC Server"], input[value="启动App"], input[value="启动VNC"] {
 	background-color:#B05000;
 	border-color:#704000;
 	font-weight: bold;
@@ -239,13 +239,13 @@ select[name="camid"] {
 	width: 182px;
 }
 
-input[value="REBOOT iAstroHub"] {
+input[value="REBOOT iAstroHub"], input[value="重启"] {
 	background-color:#F00000;
 	border-color:#F00000;
 	font-weight: bold;
 }
 
-input[value="SHUTDOWN iAstroHub"] {
+input[value="SHUTDOWN iAstroHub"], input[value="关机"] {
 	background-color: #000000;
 	color: #BA0000;
 	border-color: #B90000;

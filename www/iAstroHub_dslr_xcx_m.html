@@ -131,7 +131,7 @@
 
         function guiding() {
             if (flg_guiding == 0 && flg_calibrating == 0) {
-                document.getElementById('logtips').value = "autoguide.php : guiding.txt";
+                document.getElementById('logtips').value = "代码: autoguide.php  日志: guiding.txt";
                 xmlhttp = GetXmlHttpObject();
                 var url = "autoguide.php";
                 flg_guiding = 1;
@@ -150,7 +150,7 @@
             var r = confirm("Calibration will start. Stay on this page to monitor the progress.")
             if (r == true) {
                 if (flg_guiding == 0 && flg_calibrating == 0) {
-                    document.getElementById('logtips').value = "calibrate.php : calibrating.txt";
+                    document.getElementById('logtips').value = "代码: calibrate.php 日志: calibrating.txt";
                     xmlhttp = GetXmlHttpObject();
                     var url = "calibrate.php";
                     flg_guiding = 0;
@@ -168,7 +168,7 @@
 
         function stop() {
             xmlhttp = GetXmlHttpObject();
-            document.getElementById('logtips').value = "stop.php : guiding.txt";
+            document.getElementById('logtips').value = "代码: stop.php  日志: guiding.txt";
             var url = "stop.php";
             flg_guiding = 0;
             flg_calibrating = 0;
@@ -261,7 +261,7 @@
         function dslr(nframe, exposure, delay, iso) {
             if (is_int(nframe) && is_int(exposure) && is_int(iso) && is_int(delay) && nframe >= 1 && exposure >= 1 && delay >= 16) {
                 if (flg_ccd == 0) {
-                    document.getElementById('logtips').value = "dslr.php : photo.txt";
+                    document.getElementById('logtips').value = "代码: dslr.php 日志: photo.txt";
                     document.getElementById('msg_ccd').innerHTML = "Imaging sequence started";
                     xmlhttp2 = GetXmlHttpObject();
                     var url2 = "dslr.php?nf=" + nframe + "&ex=" + exposure + "&delay=" + delay + "&iso=" + iso;
@@ -283,7 +283,7 @@
         function stop_dslr() {
 
             if (flg_ccd == 1) {
-                document.getElementById('logtips').value = "stop_dslr.php : photo.txt";
+                document.getElementById('logtips').value = "代码: stop_dslr.php 日志: photo.txt";
                 xmlhttp2 = GetXmlHttpObject();
                 var url2 = "stop_dslr.php";
                 xmlhttp2.onreadystatechange = handleResponse2;
@@ -308,7 +308,7 @@
             var r = confirm("Plate-solving will start. Stay on this page to monitor the progress.")
             if (r == true) {
                 if (flg_solving == 0 && flg_calibrating == 0) {
-                    document.getElementById('logtips').value = "AM_start.php : astrometry.txt";
+                    document.getElementById('logtips').value = "代码: AM_start.php 日志: astrometry.txt";
                     xmlhttp3 = GetXmlHttpObject();
                     var url3 = "AM_start.php?downsample=" + downsample;
                     flg_solving = 1;
@@ -323,7 +323,7 @@
         }
 
         function AM_stop() {
-            document.getElementById('logtips').value = "AM_stop.php : astrometry.txt";
+            document.getElementById('logtips').value = "代码: AM_stop.php 日志: astrometry.txt";
             xmlhttp3 = GetXmlHttpObject();
             var url3 = "AM_stop.php";
             flg_solving = 0;
@@ -334,7 +334,7 @@
         }
 
         function AM_read() {
-            document.getElementById('logtips').value = "AM_read.php : astrometry.txt";
+            document.getElementById('logtips').value = "代码: AM_read.php 日志: astrometry.txt";
             document.getElementById('am_read').innerHTML = getdatetimestr();
             xmlhttp3 = GetXmlHttpObject();
             var url3 = "AM_read.php";
@@ -347,7 +347,7 @@
 
             var r = confirm("Do you want to align the mount?")
             if (r == true) {
-                document.getElementById('logtips').value = "AM_align.php";
+                document.getElementById('logtips').value = "代码: AM_align.php";
                 xmlhttp3 = GetXmlHttpObject();
                 var url3 = "AM_align.php";
                 //xmlhttp3.onreadystatechange = handleResponse3;
@@ -570,46 +570,46 @@
             }
         }
     </script>
-    <input type="button" value="Clear Graphs" onClick="javascript: refresh();" class="full_button">
+    <input type="button" value="清除记录" onClick="javascript: refresh();" class="full_button">
 </div>
 
 <div class="containers">
-    <h2>Tips:</h2>
+    <h2>工作提示:</h2>
     <input type="text" size="35" value="" name="statusbar" id="statusbar" readonly="readonly"/>
     <input type="text" size="35" value="" name="logtips" id="logtips" readonly="readonly"/>
     <span id="msg_ccd"></span>
 </div>
 
 <div class="containers">
-    <h2>Autoguider Control</h2>
+    <h2>导星控制</h2>
     <select name="autoguiderExp" id="autoguiderExp"
             onChange="javascript: setExp(document.getElementById('autoguiderExp').value);">
-        <option value="10">Set Exposure Time (s)</option>
+        <option value="10">曝光时间 (s)</option>
         <option value="2">1 s</option>
         <option value="1">2 s</option>
         <option value="0">4 s</option>
     </select>
 
-    <span class="rowText">RA & DEC gains:</span>
+    <span class="rowText">RA & DEC 强度:</span>
     <input type="text" size="5" value="" name="xg" id="xg"/>
     <input type="text" size="5" value="" name="yg" id="yg"/>
-    <input type="button" value="Get" onClick="javascript: getGain();" class="half_button">
-    <input type="button" value="Set"
+    <input type="button" value="获取现有设置" onClick="javascript: getGain();" class="half_button">
+    <input type="button" value="设置强度"
            onClick="javascript: setGain(document.getElementById('xg').value,document.getElementById('yg').value);"
            class="half_button">
-    <span class="rowText">Star Finder:</span>
-    <input type="button" value="Auto" onClick="javascript: auto();" class="half_button">
-    <input type="button" value="Manual" onclick="window.open('guidestar/guidestar_m.html');" class="half_button">
+    <span class="rowText">选择亮星:</span>
+    <input type="button" value="自动" onClick="javascript: auto();" class="half_button">
+    <input type="button" value="手动" onclick="window.open('guidestar/guidestar_m.html');" class="half_button">
 
-    <span class="rowText">Commands:</span>
-    <input type="button" value="Calibrate" onClick="javascript: calibrating();" class="full_button">
-    <input type="button" value="Guide" onClick="javascript: guiding();" class="half_button">
-    <input type="button" value="Stop" onClick="javascript: stop();" class="half_button">
+    <span class="rowText">控制命令:</span>
+    <input type="button" value="校准" onClick="javascript: calibrating();" class="full_button">
+    <input type="button" value="导星" onClick="javascript: guiding();" class="half_button">
+    <input type="button" value="停止" onClick="javascript: stop();" class="half_button">
 </div>
 
 <div class="containers">
-    <h2>DSLR Camera Control</h2>
-    <span class="rowText">Frame count  <span class="right">ISO</span></span>
+    <h2>单反控制</h2>
+    <span class="rowText">拍摄张数  <span class="right">ISO</span></span>
     <input type="text" size="5" value="" name="nframe" id="nframe"/>
     <select name="iso" id="iso">
         <option value="100">ISO 100</option>
@@ -620,40 +620,44 @@
         <option value="3200">ISO 3200</option>
         <option value="6400">ISO 6400</option>
     </select>
-    <span class="rowText">Exposure time (s) <span class="right">Delay (s)</span></span>
+    <span class="rowText">曝光时间 (s) <span class="right">间隔 (s) >= 16</span></span>
     <input type="text" size="5" value="" name="exposure" id="exposure"/>
     <input type="text" size="5" value="16" name="delay" id="delay"/>
-    <input type="button" value="Start"
+    <input type="button" value="开始"
            onClick="javascript: dslr(document.getElementById('nframe').value,document.getElementById('exposure').value,document.getElementById('delay').value,document.getElementById('iso').value);"
            class="half_button">
-    <input type="button" value="Stop" id="cameraStop" onClick="javascript: stop_dslr();"
+    <input type="button" value="停止" id="cameraStop" onClick="javascript: stop_dslr();"
            class="half_button">
-    <input type="button" value="View" onclick="window.open('guidestar/imageviewer_m.php');" class="full_button">
+    <input type="button" value="查看" onclick="window.open('guidestar/imageviewer_m.php');" class="full_button">
 
 </div>
 
 <div class="containers">
-    <h2>Plate-solving:</h2>
+    <h2>图像盲解析:</h2>
     <select name="downsample" id="downsample">
         <option value="2">Downsample 2x</option>
         <option value="4">Downsample 4x</option>
         <option value="8">Downsample 8x</option>
     </select>
-    <input type="button" value="Start" onClick="javascript: AM_start(document.getElementById('downsample').value);"
+    <input type="button" value="开始" onClick="javascript: AM_start(document.getElementById('downsample').value);"
            class="quarter_button">
-    <input type="button" value="Stop" onClick="javascript: AM_stop();" class="quarter_button">
-    <input type="button" value="Align" onClick="javascript: AM_align();" class="half_button">
+    <input type="button" value="停止" onClick="javascript: AM_stop();" class="quarter_button">
+    <input type="button" value="同步赤道仪" onClick="javascript: AM_align();" class="half_button">
     <a href="SkySafari.skyset">SkySafari</a>
 </div>
 
-<input type="button" value="Admin" onclick="window.open('manage_m.php');" class="full_button">
+<input type="button" value="管理设置" onclick="window.open('manage_m.php');" class="full_button">
 
 <div class="containers">
-    <h2>Monitor</h2>
-    <span class="rowText">Guiding <span id="read_guiding" class="right"></span></span>
-    <span class="rowText">Calibrating <span id="read_cal" class="right"></span></span>
-    <span class="rowText">Camera <span id="read_dslr" class="right"></span></span>
-    <span class="rowText">Plate-solving <span id="am_read" class="right"></span></span>
+    <h2>系统监测</h2>
+    <span class="rowText">导星 <span id="read_guiding" class="right"></span></span>
+    <input type="button" value="查看导星日志" onclick="window.open('guiding.txt');" class="full_button">
+    <span class="rowText">校准 <span id="read_cal" class="right"></span></span>
+    <input type="button" value="查看校准日志" onclick="window.open('calibrating.txt');" class="full_button">
+    <span class="rowText">相机 <span id="read_dslr" class="right"></span></span>
+    <input type="button" value="查看相机日志" onclick="window.open('photo.txt');" class="full_button">
+    <span class="rowText">盲解析 <span id="am_read" class="right"></span></span>
+    <input type="button" value="查看盲解析日志" onclick="window.open('astrometry.txt');" class="full_button">
 </div>
 
 <pre STYLE="font-size: large">

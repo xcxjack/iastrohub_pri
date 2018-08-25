@@ -1151,8 +1151,8 @@
 
 </script>
 <div class="containers">
-    <h2>Autoguider</h2>
-    <input type="button" value="Start Apps" onClick="javascript: startapp();" class="full_button">
+    <h2>启动系统，启动前确认连接好导星CCD，检查ST4线，检查USB线，用完记得先关机再拔电源</h2>
+    <input type="button" value="启动App" onClick="javascript: startapp();" class="full_button">
     <!--
 <p>
 Focuser Link (for filter offset):
@@ -1176,20 +1176,18 @@ Auto Hat-trick (exposure time >= 30s):
     ?>
 <input type="button" id="hattrick" value="<?= htmlentities($btn_hattrick) ?>" onClick="javascript: hattrick();" style="background-color:#000000; color:#FF0000">
 -->
-    <span class="rowText">Dithering</span>
+    <span class="rowText">抖动拍摄</span>
     <?php
     if (file_exists('/home/pi/www/dithering')) {
-        $btn_dithering = 'Press to Disable';
+        $btn_dithering = '关闭';
     } else {
-        $btn_dithering = 'Press to Enable';
+        $btn_dithering = '开启';
     }
     ?>
     <input type="button" id="dithering" value="<?= htmlentities($btn_dithering) ?>"
            onClick="javascript: dithering();" class="full_button">
-    <span class="rowText">Logs</span>
-    <input type="button" value="Calibration Log" onclick="window.open('calibrating.txt');" class="half_button">
-    <input type="button" value="Guiding Log" onclick="window.open('guiding.txt');" class="half_button">
-    <input type="button" value="DELETE Guiding Logs" onClick="javascript: clearguidinglog();" class="full_button">
+    <span class="rowText">日志管理</span>
+    <input type="button" value="删除导星日志" onClick="javascript: clearguidinglog();" class="full_button">
     <!--
     <input type="button" value="Stop Apps" onClick="javascript: stopapp();" style="background-color:#000000; color:#FF0000">
     <p>
@@ -1197,25 +1195,23 @@ Auto Hat-trick (exposure time >= 30s):
 </div>
 
 <div class="containers">
-    <h2>DSLR</h2>
-    <span class="rowText">DslrDashboard Server:</span>
-    <input type="button" value="Start" onClick="javascript: startddserver();"
-           class="half_button">
-    <input type="button" value="Stop" onClick="javascript: stopddserver();"
-           class="half_button">
-
-    <span class="rowText">Camera Protocol:</span>
+    <h2>单反选择</h2>
+    <span class="rowText">单反类型:</span>
     <input type="button" value="Canon 1000D and Nikon" onClick="javascript: setdslr3();"
            class="full_button">
+    <input type="button" value="Canon 6D/60D/550D/1100D" onClick="javascript: setdslr2();" class="full_button">
+    <input type="button" value="Canon 40D" onClick="javascript: setdslr1();" class="half_button">
+    <input type="button" value="Pentax" onClick="javascript: setdslr5();" class="half_button">
+
     <input type="button" value="FTDI-(ttyUSB0)" onClick="javascript: setdslr6();"
            class="half_button">
     <input type="button" value="FTDI-(ttyUSB1)" onClick="javascript: setdslr7();"
            class="half_button">
 
-    <span class="rowText">FTDI Driver:</span>
-    <input type="button" value="Load" onClick="javascript: ftdi_load();"
+    <span class="rowText">FTDI 驱动（D5100这种附加快门线用）:</span>
+    <input type="button" value="加载" onClick="javascript: ftdi_load();"
            class="half_button">
-    <input type="button" value="Unload" onClick="javascript: ftdi_unload();"
+    <input type="button" value="卸载" onClick="javascript: ftdi_unload();"
            class="half_button">
     <!--
 <?php
@@ -1227,12 +1223,12 @@ Auto Hat-trick (exposure time >= 30s):
     ?>
 <input type="button" id="mlu" value="<?= htmlentities($btn_mlu) ?>" onClick="javascript: mlu();" style="background-color:#000000; color:#FF0000">
 -->
-    <span class="rowText">Image Download</span>
+    <span class="rowText">自动下载图片，建议开启</span>
     <?php
     if (file_exists('/home/pi/www/download')) {
-        $btn_download = 'Press to Disable';
+        $btn_download = '关闭';
     } else {
-        $btn_download = 'Press to Enable';
+        $btn_download = '开启';
     }
     ?>
     <input type="button" id="download" value="<?= htmlentities($btn_download) ?>" onClick="javascript: download();"
@@ -1240,8 +1236,8 @@ Auto Hat-trick (exposure time >= 30s):
 </div>
 
 <div class="containers">
-    <h2>Plate Solving</h2>
-    <span class="rowText">Minimum FOV (deg)</span>
+    <h2>图像盲解析</h2>
+    <span class="rowText">最小 FOV (角度)</span>
     <select name="FOV" id="FOV" style="background-color:#000000; color:#FF0000">
         <option value="0.1">0.1</option>
         <option value="0.2">0.2</option>
@@ -1253,54 +1249,52 @@ Auto Hat-trick (exposure time >= 30s):
     </select>
     <input type="button" value="Set" onClick="javascript: setFOV(document.getElementById('FOV').value);"
            class="half_button">
-    <input type="button" value="View Astrometry Log" onclick="window.open('astrometry.txt');" class="full_button">
+    <input type="button" value="查看盲解析日志" onclick="window.open('astrometry.txt');" class="full_button">
 
-    <h2>Mount Protocol</h2>
+    <h2>选择赤道仪:</h2>
     <input type="button" value="iOptron" onClick="javascript: set_iOptron();"
-           class="full_button">
+           class="half_button">
+    <input type="button" value="LX200" onClick="javascript: set_lx200();" class="half_button">
+    <input type="button" value="Nexstar/Skywatcher" onClick="javascript: set_nexstar();" class="full_button">
+<!--    <input type="button" value="TheSkyX" onClick="javascript: set_TSX();" class="half_button">-->
 
-    <h2>File Management</h2>
-    <input type="button" value="Mount Drive" onClick="javascript: mount();"
+    <h2>文件管理</h2>
+    <input type="button" value="加载U盘" onClick="javascript: mount();"
            class="half_button">
-    <input type="button" value="Unmount Drive" onClick="javascript: unmount();"
+    <input type="button" value="卸载U盘" onClick="javascript: unmount();"
            class="half_button">
-    <input type="button" value="Download Images to Drive" onClick="javascript: downloadimages();"
+    <input type="button" value="下载图片到U盘" onClick="javascript: downloadimages();"
            class="full_button">
-    <input type="button" value="File Status" onClick="javascript: file_getStatus();"
+    <input type="button" value="文件状态查看" onClick="javascript: file_getStatus();"
            class="half_button">
-    <input type="button" value="DELETE Images" onClick="javascript: deleteimages();"
+    <input type="button" value="删除图片" onClick="javascript: deleteimages();"
            class="half_button">
 </div>
 
 <div class="containers">
-    <h2>System</h2>
-    <span class="rowText">Set Default Page:</span>
-    <input type="button" value="Canon or Nikon" onClick="javascript: default_dslr();"
-           class="half_button">
-    <input type="button" value="XCX" onClick="javascript: default_XCX();"
-           class="half_button">
-    <span class="rowText">Network SSID<span class="right">&nbsp;Password</span></span>
+    <h2>系统设置</h2>
+    <span class="rowText">WIFI SSID<span class="right">&nbsp;密码</span></span>
     <input type="text" size="15" value="" name="net_name" id="net_name"/>
-    <input type="text" size="15" value="" placeholder="8+ characters" name="net_pwd" id="net_pwd"/>
-    <input type="button" value="Set"
+    <input type="text" size="15" value="" placeholder="大于8个字符" name="net_pwd" id="net_pwd"/>
+    <input type="button" value="设置"
            onClick="javascript: setNetwork(document.getElementById('net_name').value,document.getElementById('net_pwd').value);"
            class="full_button">
     <!--
     <p>
     <input type="button" value="Start/Restart Pagekite" onClick="javascript: startPK();" style="background-color:#000000; color:#FF0000">
     -->
-    <span class="rowText">VNC Server</span>
-    <input type="button" value="Start VNC Server" onClick="javascript: vnc();"
+    <span class="rowText">VNC 服务</span>
+    <input type="button" value="启动VNC" onClick="javascript: vnc();"
            class="full_button">
     <input type="button" value="VNC for LinGuider/Skychart"
            onclick="window.open('noVNC/vnc.html?autoconnect=true&host=10.0.0.1&port=5551');" class="full_button">
-    <input type="button" value="System Info" onclick="window.open('sysinfo/index.php');" class="half_button">
-    <input type="button" value="About"
+    <input type="button" value="系统信息" onclick="window.open('sysinfo/index.php');" class="half_button">
+    <input type="button" value="关于"
            onClick="document.getElementById('returned_msg').innerHTML = 'iAstroHub is mainly developed by Anat Ruangrassamee, Ph.D. (Bangkok, Thailand). And the efforts by the following contributors are highly acknowledged.\nCopyright 2012-2016  \n\nCredits (in the alphabetical order): \nAndrew Stepanenko and Rumen Bogdanovski, Developer of LinGuider used for controlling an autoguider \nDustin Lang, Developer of Astrometry.net used for plate-solving  \nEdward Simonson, Developer of GoQat used for controlling CCD cameras \nGiampiero Spezzano, Developer of OpenSkyImager used for controlling CCD cameras \nJasem Mutlaq, Developer of INDI tools  \nJean-Luc Levaire, Developer of INDI tools  \nPatrick Chevalley, Developer of SkyChart (Cartes du Ciel) \nPeter Polakovic, Developer of INDI tools  \nPierluigi Vittori (Pentax camera control) \nRichard Garanger, Main author of the manual  \nStephane Lucas (beta-testing) \nZhirong Li and Hongyun Qiu (QHYCCD) \nZachary Wu (Pentax camera and mount control) \nZoltan Hubai, Developer of qDslrDashboard and DslrDashboard Server ';"
            class="half_button">
-    <input type="button" value="REBOOT iAstroHub" onClick="javascript: reboot();"
+    <input type="button" value="重启" onClick="javascript: reboot();"
            class="full_button">
-    <input type="button" value="SHUTDOWN iAstroHub" onClick="javascript: shutdown();"
+    <input type="button" value="关机" onClick="javascript: shutdown();"
            class="full_button">
 </div>
 
