@@ -261,7 +261,7 @@ input[value="SHUTDOWN iAstroHub"], input[value="关机"] {
                 top: 8px;
                 left: 8px;
                 right: 8px;
-                height: 208px;
+                height: 216px;
 				font-size: 40px;
 				padding: 6px 0px 0px 8px;
             }
@@ -290,6 +290,31 @@ input[value="SHUTDOWN iAstroHub"], input[value="关机"] {
 		float: right;
 	}
 
+.toolbarimg
+			{
+                border: 4px solid #C00000;
+                position: absolute;
+                top: 8px;
+                left: 8px;
+                right: 8px;
+                height: 216px;
+				font-size: 40px;
+				padding: 6px 0px 0px 8px;
+            }
+	
+.wrapperimg
+            {
+                border: 4px solid #C00000;
+
+                position: absolute;
+                top: 216px;
+                left: 8px;
+                bottom: 8px;
+                right: 8px;
+
+                overflow: hidden; /*for opera*/
+            }
+	
 select[name="videogain"] {
 	width: 120px;
 }

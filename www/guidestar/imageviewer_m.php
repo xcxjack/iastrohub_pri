@@ -86,7 +86,7 @@
 
 
 <div class="toolbar">
-    <input type="button" value="Refresh" onClick="javascript: refresh();" class="half_button">
+    <input type="button" value="刷新" onClick="javascript: refresh();" class="half_button">
 
     <select name="image" id="image">
 
@@ -114,7 +114,7 @@
 
     </select>
 
-    <input type="button" value="Load Image" onClick="javascript: load(document.getElementById('image').value);"
+    <input type="button" value="加载所选图" onClick="javascript: load(document.getElementById('image').value);"
            class="half_button">
 
     <span id="status"></span>
