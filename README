@@ -1,5 +1,4 @@
 先安装原版 iAstroHub 3.0
-链接：https://pan.baidu.com/s/1HoIqL6Ql5RF_v9tsru7cZg 密码：htco
 
 使用前请先阅读一下中文版说明书
 Manuel_iAH3_EQMOD_CHT_180419.pdf
@@ -7,14 +6,15 @@ Manuel_iAH3_EQMOD_CHT_180419.pdf
 安装分三步：
 1、安装原版镜像。用 Win32DiskImager 写入镜像文件。插入树莓派，启动，稍后可以在笔记本或者手机上看到 wifi iAstroHub。
 	然后连接 iAstroHub，密码 1234512345123
-2、安装原版补丁。
+2、安装原版补丁 patch_20161003.7z 。
 	1. 找一个U盘，解压补丁到U盘根目录。解压后确保 patch.sh 文件在根目录。
 	2. 把U盘插入到树莓派的USB口，在树莓派管理页面点击 "Upload Patch from USB Flash Driver"。
 	3. 两三秒后，刷新一下管理页面，该页面也会更新。
 	4. 点击 "Upload Status" 查看更新进度。
 	5. 更新大概需要20分钟，直到出现 "DONE" 字样
-3、安装中文版补丁。
+3、安装中文版补丁 patch_20180826.zip。
 	1. 找一个U盘，解压补丁到U盘根目录。解压后确保 patch.sh 文件在根目录。
 	然后同上，更新大概需要5秒，出现 "DONE" 字样
-	
+
+注：连续安装补丁的时候有碰到出问题的情况，具体原因也不明，可以试试换浏览器访问安装，或者重启
 手机用浏览器打开 http://10.0.0.1/m.html 即可
