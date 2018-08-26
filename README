@@ -4,11 +4,13 @@
 使用前请先阅读一下中文版说明书
 Manuel_iAH3_EQMOD_CHT_180419.pdf
 
-www 文件夹中为更新代码
-需要用 MobaXterm 软件登录树莓派，把 www 中所有文件拷贝到 /home/pi/www 目录下
-
-登录账号: root
-密码: raspberry
-
-然后用手机连接wifi iAstroHub，密码 1234512345123
+安装分三步：
+1、安装原版镜像。用 Win32DiskImager 写入镜像文件。插入树莓派，启动，稍后可以在笔记本或者手机上看到 wifi iAstroHub。
+	然后连接 iAstroHub，密码 1234512345123
+2、安装原版补丁。
+	1. 找一个U盘，解压补丁到U盘根目录。解压后确保 patch.sh 文件在根目录。
+	2. 把U盘插入到树莓派的USB口，在树莓派管理页面点击 "Upload Patch from USB Flash Driver"。
+	3. 两三秒后，刷新一下管理页面，该页面也会更新。
+	4. 点击 "Upload Status" 查看更新进度。
+	5. 更新大概需要20分钟，直到出现 "DONE" 字样
 手机用浏览器打开 http://10.0.0.1/m.html 即可
