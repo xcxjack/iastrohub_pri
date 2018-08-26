@@ -1423,7 +1423,6 @@ Set Default Page:
 <input type="button" value="Canon or Nikon" onClick="javascript: default_dslr();" style="background-color:#000000; color:#FF0000">
 <input type="button" value="Pentax" onClick="javascript: default_pentax();" style="background-color:#000000; color:#FF0000">
 <input type="button" value="INDI" onClick="javascript: default_INDI();" style="background-color:#000000; color:#FF0000">
-<input type="button" value="中文手机" onClick="javascript: default_XCX();" style="background-color:#000000; color:#FF0000">
 <p>
 Set Network SSID: 
 <input type="text" size="15" value="" name="net_name" id="net_name" style="background-color:#302217; color:#FF0000"/>

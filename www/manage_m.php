@@ -162,15 +162,16 @@
 
     function uploadpatch() {
 
-        var r = confirm("Do you want to upload the patch? Wait until LED on USB flash drive stops blinking! And check File Status.")
-        if (r == true) {
+        var r=confirm("Do you want to upload the patch? Wait until LED on USB flash drive stops blinking! And check File Status.")
+        if (r==true)
+        {
 
             xmlhttp = GetXmlHttpObject();
 
             var url = "uploadpatch.php";
 
             xmlhttp.onreadystatechange = handleResponse;
-            xmlhttp.open("GET", url, true);
+            xmlhttp.open("GET",url,true);
             xmlhttp.send(null);
 
             document.getElementById('returned_msg').innerHTML = "Wait until LED on USB flash drive stops blinking! And check File Status.";
@@ -1179,9 +1180,9 @@ Auto Hat-trick (exposure time >= 30s):
     <span class="rowText">抖动拍摄</span>
     <?php
     if (file_exists('/home/pi/www/dithering')) {
-        $btn_dithering = '关闭';
+        $btn_dithering = '关闭（已开启）';
     } else {
-        $btn_dithering = '开启';
+        $btn_dithering = '开启（已关闭）';
     }
     ?>
     <input type="button" id="dithering" value="<?= htmlentities($btn_dithering) ?>"
@@ -1226,9 +1227,9 @@ Auto Hat-trick (exposure time >= 30s):
     <span class="rowText">自动下载图片，建议开启</span>
     <?php
     if (file_exists('/home/pi/www/download')) {
-        $btn_download = '关闭';
+        $btn_download = '关闭（已开启）';
     } else {
-        $btn_download = '开启';
+        $btn_download = '开启（已关闭）';
     }
     ?>
     <input type="button" id="download" value="<?= htmlentities($btn_download) ?>" onClick="javascript: download();"
@@ -1289,9 +1290,7 @@ Auto Hat-trick (exposure time >= 30s):
     <input type="button" value="VNC for LinGuider/Skychart"
            onclick="window.open('noVNC/vnc.html?autoconnect=true&host=10.0.0.1&port=5551');" class="full_button">
     <input type="button" value="系统信息" onclick="window.open('sysinfo/index.php');" class="half_button">
-    <input type="button" value="关于"
-           onClick="document.getElementById('returned_msg').innerHTML = 'iAstroHub is mainly developed by Anat Ruangrassamee, Ph.D. (Bangkok, Thailand). And the efforts by the following contributors are highly acknowledged.\nCopyright 2012-2016  \n\nCredits (in the alphabetical order): \nAndrew Stepanenko and Rumen Bogdanovski, Developer of LinGuider used for controlling an autoguider \nDustin Lang, Developer of Astrometry.net used for plate-solving  \nEdward Simonson, Developer of GoQat used for controlling CCD cameras \nGiampiero Spezzano, Developer of OpenSkyImager used for controlling CCD cameras \nJasem Mutlaq, Developer of INDI tools  \nJean-Luc Levaire, Developer of INDI tools  \nPatrick Chevalley, Developer of SkyChart (Cartes du Ciel) \nPeter Polakovic, Developer of INDI tools  \nPierluigi Vittori (Pentax camera control) \nRichard Garanger, Main author of the manual  \nStephane Lucas (beta-testing) \nZhirong Li and Hongyun Qiu (QHYCCD) \nZachary Wu (Pentax camera and mount control) \nZoltan Hubai, Developer of qDslrDashboard and DslrDashboard Server ';"
-           class="half_button">
+    <input type="button" value="U盘升级更新" onClick="javascript: uploadpatch();" class="half_button">
     <input type="button" value="重启" onClick="javascript: reboot();"
            class="full_button">
     <input type="button" value="关机" onClick="javascript: shutdown();"
