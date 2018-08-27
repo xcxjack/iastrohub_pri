@@ -3,6 +3,9 @@
 使用前请先阅读一下中文版说明书
 Manuel_iAH3_EQMOD_CHT_180419.pdf
 
+
+镜像和补丁下载链接：https://pan.baidu.com/s/1egumbSM_GKqgIT7xPTOw3A 密码：kp1w
+
 安装分三步：
 1、安装原版镜像。用 Win32DiskImager 写入镜像文件。插入树莓派，启动，稍后可以在笔记本或者手机上看到 wifi iAstroHub。
 	然后连接 iAstroHub，密码 1234512345123
